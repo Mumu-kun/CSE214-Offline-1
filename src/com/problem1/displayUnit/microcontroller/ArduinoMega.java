@@ -8,7 +8,6 @@ import com.problem1.enums.IDType;
 public class ArduinoMega implements Microcontroller {
 
     public ArduinoMega() {
-        System.out.println("Arduino Mega has been added to the system.");
     }
 
     @Override

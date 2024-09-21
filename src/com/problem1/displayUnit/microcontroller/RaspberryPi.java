@@ -8,7 +8,6 @@ import com.problem1.enums.IDType;
 public class RaspberryPi implements Microcontroller {
 
     public RaspberryPi() {
-        System.out.println("Raspberry Pi has been added to the system.");
     }
 
     @Override

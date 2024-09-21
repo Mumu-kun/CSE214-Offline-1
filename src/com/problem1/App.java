@@ -2,11 +2,7 @@ package com.problem1;
 
 import java.util.Scanner;
 
-import com.problem1.systemPackage.AdvancedPackageBuilder;
-import com.problem1.systemPackage.BasicPackageBuilder;
 import com.problem1.systemPackage.PackageBuilder;
-import com.problem1.systemPackage.PremiumPackageBuilder;
-import com.problem1.systemPackage.StandardPackageBuilder;
 import com.problem1.systemPackage.SystemPackage;
 
 public class App {
@@ -21,22 +17,23 @@ public class App {
                     4. Premium - Raspberry Pi with Touch Screen display""");
 
         String packageChoice = scanner.nextLine();
+        System.out.println();
 
         Director director = new Director();
-        PackageBuilder packageBuilder = null;
+        PackageBuilder packageBuilder = new PackageBuilder();
 
         switch (packageChoice) {
             case "1":
-                packageBuilder = new BasicPackageBuilder();
+                director.constructBasicPackage(packageBuilder);
                 break;
             case "2":
-                packageBuilder = new StandardPackageBuilder();
+                director.constructStandardPackage(packageBuilder);
                 break;
             case "3":
-                packageBuilder = new AdvancedPackageBuilder();
+                director.constructAdvancedPackage(packageBuilder);
                 break;
             case "4":
-                packageBuilder = new PremiumPackageBuilder();
+                director.constructPremiumPackage(packageBuilder);
                 break;
             default:
                 System.out.println("Invalid Choice");
@@ -44,11 +41,8 @@ public class App {
         }
         System.out.println();
 
-        director.setPackage(packageBuilder);
-        SystemPackage createdPackage = director.construct();
-
-        System.out.println();
-        createdPackage.printDetails();
+        SystemPackage systemPackage = packageBuilder.build();
+        systemPackage.printDetails();
 
         scanner.close();
     }

@@ -8,7 +8,6 @@ import com.problem1.enums.IDType;
 public class ATMega32 implements Microcontroller {
 
     public ATMega32() {
-        System.out.println("ATMega32 has been added to the system.");
     }
 
     @Override
